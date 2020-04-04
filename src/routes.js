@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import App from './pages/App'
-import Upload from './pages/Upload'
+import App from './components/App'
+import Upload from './components/Upload'
+import Login from './components/Login'
 
 function Routes () {
     return (
@@ -9,6 +10,7 @@ function Routes () {
             <Switch>
                 <Route path='/' exact component={App} />
                 <Route path='/upload' exact component={Upload} />
+                <Route path='/login' exact component={Login} />
             </Switch>
         </BrowserRouter>
     )
