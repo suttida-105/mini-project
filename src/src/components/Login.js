@@ -3,6 +3,8 @@ import axios from "axios";
 import { allAction } from "../redux/store";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
+import { Button, Row, Col, Input } from "antd";
+import "./login.css";
 const Login = props => {
   const [form, setForm] = useState({
     username: "",
@@ -32,23 +34,43 @@ const Login = props => {
   const login = async () => {
     AllAction.login(form);
     props.history.push("/show");
-
   };
 
   return (
-    <div>
-      INPUT
-      <input
-        onChange={e => {
-          setForm({ ...form, username: e.target.value });
-        }}
-      />
-      <input
-        onChange={e => {
-          setForm({ ...form, password: e.target.value });
-        }}
-      />
-      <button onClick={login}>Login</button>
+    <div className="bg">
+      <Row >
+        <Col className="gutter-row" span={6}></Col>
+        <Col className="gutter-row" span={6}></Col>
+        <Col className="gutter-row" span={6}></Col>
+        <Col className="gutter-row" span={6}>
+          <div className="flex-input">
+            <div>
+              <h4>PSU Passport Authentication</h4>
+              <Input
+                placeholder="PSU Passport Account Name"
+                onChange={e => {
+                  setForm({ ...form, username: e.target.value });
+                }}
+                style={{ marginBottom: 5 }}
+              />
+              <Input
+                placeholder="Password"
+                type="password"
+                onChange={e => {
+                  setForm({ ...form, password: e.target.value });
+                }}
+                style={{ marginBottom: 5 }}
+              />
+
+              <div>
+                <Button type="primary" onClick={login}>
+                  Login
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 };
