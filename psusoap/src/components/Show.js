@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import firebase from "../firebase";
+import { allAction } from "../redux/store";
+import { bindActionCreators } from "redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const Show = () =>{
+const Show = (props) =>{
     const [data, setData] = useState([]);
+    const AllAction = bindActionCreators(allAction, useDispatch());
     useEffect(()=>{
         getFirestore()
     },[])
+    const logout = ()=>{
+        localStorage.clear()
+        AllAction.logout()
+      props.history.push("/login");
+
+    }
     function getFirestore(){
         let tmp = [];
         let db = firebase.firestore();
@@ -40,6 +50,7 @@ const Show = () =>{
             {
               renderImg()  
             }
+            <button onClick={logout}>logout</button>
         </div>
     )
 }

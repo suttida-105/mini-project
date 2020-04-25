@@ -1,28 +1,77 @@
-import React, { useState } from 'react';
-import axios from 'axios'
-const Login = () =>{
-    const [form , setForm] = useState({
-        username : "",
-        password : ""
-    })
-    const [student , setStudent] = useState({
-        id : "",
-        name : "",
-    })
-    const login  = async () =>{
-        console.log(form);
-        let res = await axios.post('http://localhost/',{...form})
-        let [ id , name , latename ] = res.data.GetStaffDetailsResult.string
-        setStudent({id , name : name+" "+latename})
-        
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { allAction } from "../redux/store";
+import { bindActionCreators } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, Row, Col, Input } from "antd";
+import "./login.css";
+const Login = props => {
+  const [form, setForm] = useState({
+    username: "",
+    password: ""
+  });
+  const AllAction = bindActionCreators(allAction, useDispatch());
+  const user = useSelector(state => state.user);
+  const saveLocalStorage = () => {
+    let save = user.id + ":" + user.name;
+    localStorage.setItem("user", save);
+  };
+  const getlocalStorage = () => {
+    let load = localStorage.getItem("user");
+    if (load) {
+      props.history.push("/show");
+    } else {
+      props.history.push("/login");
     }
-    return (
-        <div>
-            INPUT
-            <input onChange={e=>{setForm({...form,username:e.target.value})}}/>
-            <input onChange={e=>{setForm({...form,password:e.target.value})}}/>
-            <button onClick={login}>Login</button>
-        </div>
-    )
-}
-export default Login
+  };
+  useEffect(() => {
+    if (user.id != "") {
+      props.history.push("/show");
+      saveLocalStorage();
+    }
+    getlocalStorage();
+  }, []);
+  const login = async () => {
+    AllAction.login(form);
+    props.history.push("/show");
+  };
+
+  return (
+    <div className="bg">
+      <Row >
+        <Col className="gutter-row" span={6}></Col>
+        <Col className="gutter-row" span={6}></Col>
+        <Col className="gutter-row" span={6}></Col>
+        <Col className="gutter-row" span={6}>
+          <div className="flex-input">
+            <div>
+              <h4>PSU Passport Authentication</h4>
+              <Input
+                placeholder="PSU Passport Account Name"
+                onChange={e => {
+                  setForm({ ...form, username: e.target.value });
+                }}
+                style={{ marginBottom: 5 }}
+              />
+              <Input
+                placeholder="Password"
+                type="password"
+                onChange={e => {
+                  setForm({ ...form, password: e.target.value });
+                }}
+                style={{ marginBottom: 5 }}
+              />
+
+              <div>
+                <Button type="primary" onClick={login}>
+                  Login
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </div>
+  );
+};
+export default Login;
