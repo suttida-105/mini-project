@@ -12,10 +12,6 @@ const Login = props => {
   });
   const AllAction = bindActionCreators(allAction, useDispatch());
   const user = useSelector(state => state.user);
-  const saveLocalStorage = () => {
-    let save = user.id + ":" + user.name;
-    localStorage.setItem("user", save);
-  };
   const getlocalStorage = () => {
     let load = localStorage.getItem("user");
     if (load) {
@@ -27,12 +23,11 @@ const Login = props => {
   useEffect(() => {
     if (user.id != "") {
       props.history.push("/show");
-      saveLocalStorage();
     }
     getlocalStorage();
   }, []);
   const login = async () => {
-    AllAction.login(form);
+    await AllAction.login(form);
     props.history.push("/show");
   };
 

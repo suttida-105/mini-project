@@ -27,7 +27,7 @@ const Login = props => {
     getlocalStorage();
   }, []);
   const login = async () => {
-    AllAction.login(form);
+    await AllAction.login(form);
     props.history.push("/show");
   };
 

@@ -10,6 +10,8 @@ export const allAction = {
   login: user => async dispatch => {
     let res = await axios.post(`http://localhost/`, { ...user });
     const [id, name, surname] = res.data.GetStudentDetailsResult.string;
+    let save = id + " : " + name + " " + surname ;
+    localStorage.setItem("user", save);
     dispatch({ type: "LOGIN", id: id, name: name + " " + surname });
   },
   logout: ()=> async dispatch =>{

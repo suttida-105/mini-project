@@ -3,23 +3,31 @@ import firebase from "../firebase";
 import { allAction } from "../redux/store";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
-
+import Nav from './Nav'
 const Show = (props) =>{
     const [data, setData] = useState([]);
+    const user = {id  : "", name : ""}
     const AllAction = bindActionCreators(allAction, useDispatch());
     useEffect(()=>{
-        getFirestore()
+      getlocalStorage()
+      getFirestore()
     },[])
-    const logout = ()=>{
-        localStorage.clear()
-        AllAction.logout()
-      props.history.push("/login");
-
-    }
+    const getlocalStorage = () => {
+      let load = localStorage.getItem("user");
+      if (load) {
+        props.history.push("/show");
+        load = load.split(":")
+        user.id = load[0]
+        user.name = load[1]
+      
+      } else {
+        props.history.push("/login");
+      }
+    };
     function getFirestore(){
         let tmp = [];
         let db = firebase.firestore();
-        db.collection("img")
+        db.collection(user.id.toString())
           .get()
           .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
@@ -34,6 +42,7 @@ const Show = (props) =>{
           });
       }
       function renderImg(){
+        if(data.length == 0) return (<div>Not Found</div>)
         return data.map(item=>{
             return (
                 <div>
@@ -46,11 +55,11 @@ const Show = (props) =>{
       
     return (
         <div>
-            SHOW
+          <Nav/>
+            
             {
               renderImg()  
             }
-            <button onClick={logout}>logout</button>
         </div>
     )
 }
