@@ -1,0 +1,14 @@
+.flex-input {
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+height: 100vh;
+  padding-left: 10px;
+}
+.bg {
+  background-image: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size:auto;
+}
