@@ -17,16 +17,16 @@ const Nav = () => {
     
   };
   return (
-    <div>
-      <Breadcrumb>
-        <Breadcrumb.Item>
-          <Link to="/show">My Gallery</Link>
+    <div >
+      <Breadcrumb >
+        <Breadcrumb.Item className="text-big" >
+          <Link to="/" >My Gallery</Link>
         </Breadcrumb.Item>
-        <Breadcrumb.Item>
+        <Breadcrumb.Item className="text-big">
           <Link to="/upload">Upload</Link>
         </Breadcrumb.Item>
-        <Breadcrumb.Item>{getName()}</Breadcrumb.Item>
-        <Breadcrumb.Item>
+        <Breadcrumb.Item className="text-big">{getName()}</Breadcrumb.Item>
+        <Breadcrumb.Item className="text-big">
           <Link onClick={logout} to="/login">logout</Link>
         </Breadcrumb.Item>
       </Breadcrumb>
