@@ -8,7 +8,9 @@ const user = {
 };
 export const allAction = {
   login: user => async dispatch => {
-    let res = await axios.post(`http://localhost/`, { ...user });
+    
+    let res = await axios.post(`https://psusoap.herokuapp.com/`, { ...user });
+    // let res = await axios.post(`http://localhost/`, { ...user });
     const [id, name, surname] = res.data.GetStudentDetailsResult.string;
     let save = id + " : " + name + " " + surname ;
     localStorage.setItem("user", save);

@@ -42,7 +42,7 @@ const Show = (props) => {
       });
   }
   function renderImg() {
-    if (data.length == 0) return <div>loadding....</div>;
+    if (data.length == 0) return <div>Not Found</div>;
     return data.map((item,i) => {
       return (
         <Col span={6} style={{ padding: 10 }} key={i}>
