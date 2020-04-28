@@ -24,7 +24,7 @@ function Upload(props) {
       load = load.split(":");
       setUser({ id: load[0], name: load[1] });
     } else {
-      props.history.push("/login");
+      props.history.push("/");
     }
   };
   const clear = () =>{

@@ -10,8 +10,8 @@ function App () {
         <BrowserRouter>
             <Switch>
                 <Route path='/upload' exact component={Upload} />
-                <Route path='/login' exact component={Login} />
-                <Route path='/' exact component={Show} />
+                <Route path='/' exact component={Login} />
+                <Route path='/show' exact component={Show} />
             </Switch>
         </BrowserRouter>
     )

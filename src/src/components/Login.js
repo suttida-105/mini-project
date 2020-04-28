@@ -15,20 +15,20 @@ const Login = props => {
   const getlocalStorage = () => {
     let load = localStorage.getItem("user");
     if (load) {
-      props.history.push("/");
+      props.history.push("/show");
     } else {
-      props.history.push("/login");
+      props.history.push("/");
     }
   };
   useEffect(() => {
     if (user.id != "") {
-      props.history.push("/");
+      props.history.push("/show");
     }
     getlocalStorage();
   }, []);
   const login = async () => {
     await AllAction.login(form);
-    props.history.push("/");
+    props.history.push("/show");
   };
 
   return (

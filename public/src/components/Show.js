@@ -11,17 +11,28 @@ const Show = (props) => {
   const AllAction = bindActionCreators(allAction, useDispatch());
   useEffect(() => {
     getlocalStorage();
-    getFirestore();
   }, []);
   const getlocalStorage = () => {
     let load = localStorage.getItem("user");
     if (load) {
-      props.history.push("/");
+      // props.history.push("/show");
       load = load.split(":");
-      user.id = load[0];
       user.name = load[1];
+      user.id = load[0];
+      if ((user.id = "")) {
+        props.history.push("/");
+      } else {
+        console.log(load);
+        console.log(user.id);
+        console.log(user.name);
+        console.log(load[0]);
+      user.id = load[0];
+      console.log(user.id);
+        
+        getFirestore();
+      }
     } else {
-      props.history.push("/login");
+      props.history.push("/");
     }
   };
   //ref1
@@ -43,7 +54,7 @@ const Show = (props) => {
   }
   function renderImg() {
     if (data.length == 0) return <div>Not Found</div>;
-    return data.map((item,i) => {
+    return data.map((item, i) => {
       return (
         <Col span={6} style={{ padding: 10 }} key={i}>
           <div
@@ -52,14 +63,14 @@ const Show = (props) => {
               height: 250,
               display: "flex",
               justifyContent: "center",
-                alignItems: "center",
-                backgroundPosition:"center",
-                backgroundSize:500,
-                backgroundRepeat:"no-repeat"
+              alignItems: "center",
+              backgroundPosition: "center",
+              backgroundSize: 500,
+              backgroundRepeat: "no-repeat",
             }}
           >
-              <h1 className="mark">{item.name}</h1>
-            </div>
+            <h1 className="mark">{item.name}</h1>
+          </div>
           {/* <img src={item.url} width="100%" /> */}
         </Col>
       );
