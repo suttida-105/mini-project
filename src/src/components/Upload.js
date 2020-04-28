@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import firebase from "../firebase";
+import { allAction } from "../redux/store";
+import { bindActionCreators } from "redux";
+import { useDispatch, useSelector } from "react-redux";
 import Nav from "./Nav";
 import { Button } from "antd";
 function Upload(props) {
   const [files, setFiles] = useState({});
   const [user, setUser] = useState({ id: "", name: "" });
   const [url_review, setUrlreview] = useState("");
+  const AllAction = bindActionCreators(allAction, useDispatch());
+
 
   useEffect(() => {
     getlocalStorage();
@@ -13,8 +17,6 @@ function Upload(props) {
   function handleChange(e) {
     // ref3
     setFiles(e.target.files[0]);
-    console.log(e.target.files[0]);
-
     setUrlreview(URL.createObjectURL(e.target.files[0]));
   }
   const getlocalStorage = () => {
@@ -32,42 +34,8 @@ function Upload(props) {
     setFiles({})
   }
   async function upload() {
-    // files.forEach((file) => {
-      let fileName = files.name;
-      let ts = new Date();
-      //ref 5
-      fileName = fileName.replace(/\s/g, "");
-      fileName = ts.getTime() + fileName;
-
-      let storageRef = firebase.storage().ref(fileName);
-      storageRef.put(files);
-      let url =
-        "https://firebasestorage.googleapis.com/v0/b/mini-project-1f085.appspot.com/o/" +
-        fileName +
-        "?alt=media";
-      console.log({ name: files.name, url: url });
-      writeFirestore({ name: files.name, url: url });
-    // });
-  }
-  //ref4
-  function writeFirestore(data) {
-    console.log(user);
-    console.log(user.id.toString());
-
-    let db = firebase.firestore();
-    db.collection(user.id.toString())
-      .doc()
-      .set(data)
-      .then(function () {
-        console.log("Document successfully written!");
-        alert("อัปโหลดรูปสำเร็จ");
-        clear()
-      })
-      .catch(function (error) {
-        alert("ไม่อัปโหลดรูปสำเร็จ");
-
-        console.error("Error writing document: ", error);
-      });
+    await AllAction.upload(files,user.id)
+    clear()
   }
   return (
     <div>
