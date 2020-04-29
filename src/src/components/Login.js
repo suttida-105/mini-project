@@ -10,6 +10,7 @@ const Login = props => {
     username: "",
     password: ""
   });
+  const [active , setActive] = useState(false)
   const AllAction = bindActionCreators(allAction, useDispatch());
   const user = useSelector(state => state.user);
   const getlocalStorage = () => {
@@ -27,8 +28,11 @@ const Login = props => {
     getlocalStorage();
   }, []);
   const login = async () => {
-    await AllAction.login(form);
-    props.history.push("/show");
+    setActive(true)
+      await AllAction.login(form);
+      props.history.push("/show");
+      setActive(false)
+    
   };
 
   return (
@@ -59,7 +63,7 @@ const Login = props => {
 
               <div>
                 <Button type="primary" onClick={login}>
-                  Login
+              { active &&(<i class="fa fa-circle-o-notch fa-spin"/>)}<p style={{marginLeft:10,marginRight:10}}>Login</p>
                 </Button>
               </div>
             </div>

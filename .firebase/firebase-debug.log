@@ -1,0 +1,78 @@
+[debug] [2020-04-26T15:57:47.664Z] ----------------------------------------------------------------------
+[debug] [2020-04-26T15:57:47.666Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\air\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-04-26T15:57:47.667Z] CLI Version:   8.1.1
+[debug] [2020-04-26T15:57:47.667Z] Platform:      win32
+[debug] [2020-04-26T15:57:47.667Z] Node Version:  v12.14.1
+[debug] [2020-04-26T15:57:47.669Z] Time:          Sun Apr 26 2020 22:57:47 GMT+0700 (Indochina Time)
+[debug] [2020-04-26T15:57:47.669Z] ----------------------------------------------------------------------
+[debug] [2020-04-26T15:57:47.669Z] 
+[debug] [2020-04-26T15:57:47.686Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-26T15:57:47.687Z] > authorizing via signed-in user
+[debug] [2020-04-26T15:57:47.688Z] [iam] checking project mini-project-2a9d9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-04-26T15:57:47.697Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-04-26T15:57:47.698Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-04-26T15:57:48.072Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 26 Apr 2020 15:57:48 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-26T15:57:48.084Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mini-project-2a9d9:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-04-26T15:57:49.641Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 26 Apr 2020 15:57:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1217","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-26T15:57:49.643Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mini-project-2a9d9  
+ 
+[debug] [2020-04-26T15:57:50.268Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 26 Apr 2020 15:57:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mini-project-2a9d9'...
+[info] 
+[info] i  deploying hosting
+[debug] [2020-04-26T15:57:50.284Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mini-project-2a9d9/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-04-26T15:57:52.657Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 26 Apr 2020 15:57:53 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[mini-project-2a9d9]: beginning deploy...
+[info] i  hosting[mini-project-2a9d9]: found 24 files in build
+[debug] [2020-04-26T15:57:53.694Z] [hosting] hash cache [YnVpbGQ] stored for 24 files
+[debug] [2020-04-26T15:57:53.695Z] [hosting][hash queue][FINAL] {"max":975,"min":14,"avg":137.79166666666666,"active":0,"complete":24,"success":24,"errored":0,"retried":0,"total":24,"elapsed":995}
+[debug] [2020-04-26T15:57:53.696Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mini-project-2a9d9/versions/db71c1bacf136ec2:populateFiles  
+ <request body omitted>
+[debug] [2020-04-26T15:57:55.602Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 26 Apr 2020 15:57:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-26T15:57:55.609Z] [hosting][populate queue][FINAL] {"max":1912,"min":1912,"avg":1912,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1917}
+[debug] [2020-04-26T15:57:55.609Z] [hosting] uploads queued: 8
+[debug] [2020-04-26T15:58:01.948Z] [hosting][upload queue][FINAL] {"max":6345,"min":2034,"avg":3065.75,"active":0,"complete":8,"success":8,"errored":0,"retried":0,"total":8,"elapsed":6345}
+[info] +  hosting[mini-project-2a9d9]: file upload complete
+[debug] [2020-04-26T15:58:01.954Z] [hosting] deploy completed after 9294ms
+[debug] [2020-04-26T15:58:02.245Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "mini-project-2a9d9"
+    },
+    "site": "mini-project-2a9d9",
+    "version": "sites/mini-project-2a9d9/versions/db71c1bacf136ec2"
+  }
+]
+[info] i  hosting[mini-project-2a9d9]: finalizing version...
+[debug] [2020-04-26T15:58:02.247Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/mini-project-2a9d9/versions/db71c1bacf136ec2?updateMask=status  
+ {"status":"FINALIZED"}
+[debug] [2020-04-26T15:58:04.348Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 26 Apr 2020 15:58:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-26T15:58:04.350Z] [hosting] finalized version for mini-project-2a9d9: {"name":"sites/mini-project-2a9d9/versions/db71c1bacf136ec2","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2020-04-26T15:57:52.710591Z","createUser":{"email":"suttida.5835512105@gmail.com"},"finalizeTime":"2020-04-26T15:58:04.391550Z","finalizeUser":{"email":"suttida.5835512105@gmail.com"}}
+[info] +  hosting[mini-project-2a9d9]: version finalized
+[info] i  hosting[mini-project-2a9d9]: releasing new version...
+[debug] [2020-04-26T15:58:04.355Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mini-project-2a9d9/releases?version_name=sites/mini-project-2a9d9/versions/db71c1bacf136ec2  
+ {"message":null}
+[debug] [2020-04-26T15:58:06.186Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 26 Apr 2020 15:58:06 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-26T15:58:06.187Z] [hosting] release: {"name":"sites/mini-project-2a9d9/releases/1587916686550673","version":{"name":"sites/mini-project-2a9d9/versions/db71c1bacf136ec2","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}},"type":"DEPLOY","releaseTime":"2020-04-26T15:58:06Z"}
+[info] +  hosting[mini-project-2a9d9]: release complete
+[info] 
+[info] +  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/mini-project-2a9d9/overview
+[info] Hosting URL: https://mini-project-2a9d9.web.app

@@ -41,6 +41,52 @@
   -webkit-text-stroke: 0.1px white;
   background-color: azure;
 }
-.text-big{
+.text-big {
   font-size: 1.5em;
 }
+.bt-close {
+  position: absolute;
+  right: 0px;
+  padding-right: 5%;
+  color: RED;
+  font-size: 1.4em;
+  -webkit-text-stroke: 1px white;
+  cursor: pointer;
+}
+.bg-show{
+  background-image: url('./img/18948.jpg');
+  background-size:50vw;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.bg-upload{
+  background-image: url('./img/2927342.jpg');
+background-size: contain;
+  background-repeat: no-repeat;
+background-position: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #E9E4E1;
+}
+.bg-show-full{
+  background-image: url('./img/18948.jpg');
+  background-repeat: no-repeat;
+background-position: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #E9E4E1;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.image-upload>input {
+  display: none;
+}
+.img-upload{
+width: 300px;
+}
+.img-upload:hover{
+  width: 305px;
+  cursor: pointer;
+
+  }
